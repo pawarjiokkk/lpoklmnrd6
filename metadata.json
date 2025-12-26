@@ -1,0 +1,7 @@
+{
+  "name": "ExploreaToolHub",
+  "description": "Professional Online Utility Platform for Modern Digital Workflows.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter - Free Online Word & Character Count Tool</title>
+    <meta name="description" content="Use our professional free online word counter to count words, characters, and sentences in real-time. Safe, secure, and accurate text analysis.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c2f711',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <header class="bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2 font-bold text-xl">
+                <div class="bg-slate-900 p-2 rounded-lg text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                </div>
+                <span>ExploreaToolHub</span>
+            </a>
+            <div class="flex space-x-4 text-xs font-black uppercase tracking-widest text-slate-400">
+                <a href="index.html" class="hover:text-slate-900">Home</a>
+                <span class="text-slate-200">/</span>
+                <span class="text-slate-900">Word Counter</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-8">
+            <h1 class="text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight">Free Online Word Counter</h1>
+            <p class="text-lg text-slate-500 mb-10 leading-relaxed font-medium">Count words, characters, and sentences in real-time. Optimized for writers, students, and SEO specialists.</p>
+
+            <!-- Tool Container -->
+            <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Workspace</span>
+                    <button id="clearBtn" class="text-xs font-bold text-slate-400 hover:text-red-500 flex items-center transition-colors">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        Clear Text
+                    </button>
+                </div>
+                <textarea id="textInput" placeholder="Paste or type your content here..." class="w-full h-80 p-6 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-primary/30 focus:bg-white outline-none transition-all resize-none text-lg text-slate-800 font-medium shadow-inner"></textarea>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
+                        <div id="wordCount" class="text-2xl font-black">0</div>
+                        <div class="text-[10px] font-black uppercase text-slate-400 tracking-widest mt-1">Words</div>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
+                        <div id="charWithSpace" class="text-2xl font-black">0</div>
+                        <div class="text-[10px] font-black uppercase text-slate-400 tracking-widest mt-1">Chars (Space)</div>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
+                        <div id="charNoSpace" class="text-2xl font-black">0</div>
+                        <div class="text-[10px] font-black uppercase text-slate-400 tracking-widest mt-1">Chars (No)</div>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
+                        <div id="sentenceCount" class="text-2xl font-black">0</div>
+                        <div class="text-[10px] font-black uppercase text-slate-400 tracking-widest mt-1">Sentences</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Content for AdSense Approval -->
+            <article class="prose prose-slate max-w-none bg-white p-12 rounded-[2.5rem] border border-slate-100">
+                <h2 class="text-2xl font-black mb-6">What is the ExploreaToolHub Word Counter?</h2>
+                <p class="text-slate-500 leading-relaxed mb-8">
+                    Our Word Counter is a professional, free online tool designed for writers, students, and professionals who need accurate text statistics. It works instantly in your browser to count words, characters, and sentences as you type. With no signup required and a focus on privacy, it is the fastest way to check your text length online.
+                </p>
+                <h3 class="text-xl font-bold mb-4">How to use this tool?</h3>
+                <ul class="list-disc pl-6 space-y-3 text-slate-500 mb-8">
+                    <li>Copy your content from your document or draft.</li>
+                    <li>Paste the text into the large workspace above.</li>
+                    <li>View the live statistics as they update with every keystroke.</li>
+                    <li>Adjust your content to meet specific word count requirements.</li>
+                </ul>
+                <div class="bg-slate-900 p-8 rounded-3xl text-white">
+                    <h4 class="text-primary font-bold mb-4">Privacy Guaranteed</h4>
+                    <p class="text-sm text-slate-400">All processing happens locally on your device. We never see, store, or transmit your text over the internet.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Sidebar for Ads & Related -->
+        <div class="lg:col-span-4 space-y-8">
+            <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 text-center">
+                <span class="text-[9px] font-black text-slate-300 uppercase tracking-widest mb-4 block">Sponsored</span>
+                <div class="aspect-square bg-slate-50 rounded-2xl border border-dashed border-slate-200 flex items-center justify-center">
+                    <span class="text-xs font-bold text-slate-300">Ad Placement</span>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100">
+                <h4 class="text-lg font-black mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    Related Tools
+                </h4>
+                <div class="space-y-4">
+                    <a href="char-counter.html" class="flex items-center p-4 bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 rounded-2xl transition-all group">
+                        <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center mr-4 group-hover:bg-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700">Char Counter</span>
+                    </a>
+                    <a href="notepads.html" class="flex items-center p-4 bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 rounded-2xl transition-all group">
+                        <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center mr-4 group-hover:bg-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700">Online Notepad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-100 py-12 text-center text-[10px] font-bold uppercase tracking-widest text-slate-400">
+        <p>&copy; 2024 ExploreaToolHub • Fast • Free • Professional</p>
+    </footer>
+
+    <script>
+        const input = document.getElementById('textInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const counts = {
+            words: document.getElementById('wordCount'),
+            charSpace: document.getElementById('charWithSpace'),
+            charNoSpace: document.getElementById('charNoSpace'),
+            sentences: document.getElementById('sentenceCount')
+        };
+
+        input.addEventListener('input', () => {
+            const val = input.value;
+            counts.words.innerText = val.trim() ? val.trim().split(/\s+/).length : 0;
+            counts.charSpace.innerText = val.length;
+            counts.charNoSpace.innerText = val.replace(/\s/g, '').length;
+            counts.sentences.innerText = val.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+        });
+
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            Object.values(counts).forEach(el => el.innerText = '0');
+        });
+    </script>
+</body>
+</html>

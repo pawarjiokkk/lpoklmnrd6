@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreaToolHub - Premium Online Utility Suite</title>
+    <meta name="description" content="Access a professional-grade suite of 32+ free online tools. Secure, fast, and local-only processing for modern digital workflows.">
+    <meta name="keywords" content="online tools, word counter, image resizer, bmi calculator, password generator, free utility hub">
+    
+    <!-- Performance Optimization: Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5', // Professional Indigo
+                        'primary-dark': '#4338CA',
+                        midnight: '#0F172A',
+                        surface: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 50px -12px rgba(15, 23, 42, 0.08)',
+                        '3d-lift': '0 40px 80px -20px rgba(15, 23, 42, 0.15)',
+                        'glow': '0 0 25px 2px rgba(79, 70, 229, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; overflow-x: hidden; scroll-behavior: smooth; }
+        .perspective-2000 { perspective: 2000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        
+        /* 3D Animated Background Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+            animation: move 20s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+        .blob-1 { width: 500px; height: 500px; background: #818CF8; top: -100px; right: -100px; }
+        .blob-2 { width: 600px; height: 600px; background: #C7D2FE; bottom: -200px; left: -200px; animation-duration: 25s; }
+        
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(100px, 100px) scale(1.1); }
+        }
+
+        /* Hero Floating Animation */
+        @keyframes float-hero {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(4deg); }
+            66% { transform: translateY(15px) rotate(-3deg); }
+        }
+
+        .floating-element {
+            animation: float-hero 15s infinite ease-in-out;
+            will-change: transform;
+        }
+        
+        .delay-2000 { animation-delay: 2s; }
+        .delay-4000 { animation-delay: 4s; }
+        .delay-6000 { animation-delay: 6s; }
+        
+        /* Tool Card 3D Tilt Effect */
+        .tool-card-3d {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow;
+            transform: translateZ(0);
+        }
+        .tool-card-3d:hover {
+            transform: translateY(-20px) rotateX(8deg) rotateY(-5deg) scale(1.02);
+            box-shadow: 0 45px 100px -20px rgba(15, 23, 42, 0.2), 0 0 30px -5px rgba(79, 70, 229, 0.15);
+        }
+
+        /* Reveal Animation on Scroll */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.is-revealed { opacity: 1; transform: translateY(0); }
+
+        #root { min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* Skeleton Loading State for Performance */
+        .skeleton { background: linear-gradient(90deg, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%); background-size: 200% 100%; animation: skeleton-loading 1.5s infinite; }
+        @keyframes skeleton-loading { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+      }
+    }
+    </script>
+</head>
+<body class="font-sans text-midnight selection:bg-primary/20">
+    <div id="root"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-revealed');
+                });
+            }, { threshold: 0.1 });
+
+            const observe = () => {
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            };
+
+            observe();
+            setInterval(observe, 1500); // Dynamic check for lazy-loaded content
+        });
+    </script>
+</body>
+</html>

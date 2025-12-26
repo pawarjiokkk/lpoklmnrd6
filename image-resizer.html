@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer - Resize Photos Online Free | ExploreaToolHub</title>
+    <meta name="description" content="Resize your images to exact pixel dimensions for free. No upload to server. Privacy-safe browser-based image scaling.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c2f711',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <header class="bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2 font-bold text-xl">
+                <div class="bg-slate-900 p-2 rounded-lg text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <span>ExploreaToolHub</span>
+            </a>
+            <div class="text-xs font-black uppercase tracking-widest text-slate-400">
+                <a href="index.html" class="hover:text-slate-900">Home</a> / <span class="text-slate-900">Image Resizer</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 lg:py-20">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h1 class="text-4xl lg:text-5xl font-black mb-6">Online Image Resizer</h1>
+            <p class="text-lg text-slate-500 font-medium leading-relaxed">Resize your photos to perfect dimensions in seconds. High quality, zero server uploads.</p>
+        </div>
+
+        <div class="bg-white p-8 lg:p-16 rounded-[3rem] border border-slate-100 shadow-xl max-w-5xl mx-auto">
+            <div id="dropZone" class="border-4 border-dashed border-slate-100 rounded-[2.5rem] p-20 flex flex-col items-center justify-center transition-all cursor-pointer hover:border-primary hover:bg-slate-50">
+                <div class="bg-slate-50 p-6 rounded-2xl mb-4"><svg class="w-12 h-12 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg></div>
+                <p class="text-xl font-bold">Select or Drop Image</p>
+                <p class="text-sm text-slate-400 mt-2">Supports JPG, PNG, WEBP</p>
+                <input type="file" id="fileInput" class="hidden" accept="image/*">
+            </div>
+
+            <div id="editor" class="hidden mt-12 space-y-10">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2">
+                        <img id="preview" class="max-w-full h-auto rounded-3xl shadow-2xl border border-slate-100" />
+                    </div>
+                    <div class="lg:w-1/2 space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Width (px)</label>
+                                <input type="number" id="widthInput" class="w-full p-4 bg-slate-50 rounded-xl font-bold border-2 border-transparent focus:border-primary focus:bg-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Height (px)</label>
+                                <input type="number" id="heightInput" class="w-full p-4 bg-slate-50 rounded-xl font-bold border-2 border-transparent focus:border-primary focus:bg-white outline-none">
+                            </div>
+                        </div>
+                        <button id="downloadBtn" class="w-full py-6 bg-slate-900 text-white font-black rounded-2xl shadow-xl hover:bg-black transition-all flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Resize & Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 max-w-4xl mx-auto">
+            <div class="prose prose-slate max-w-none bg-white p-12 rounded-[2.5rem] border border-slate-100">
+                <h2 class="text-2xl font-black mb-6">Why use our Image Resizer?</h2>
+                <p class="text-slate-500 leading-relaxed mb-8">Changing image dimensions is a common task for social media, blogs, and developers. Our tool ensures your images are scaled perfectly without losing quality. We prioritize privacy: your images never leave your browser memory, making it safer than cloud-based alternatives.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-100 py-12 text-center text-[10px] font-bold uppercase tracking-widest text-slate-400">
+        <p>&copy; 2024 ExploreaToolHub • Simply Professional</p>
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const editor = document.getElementById('editor');
+        const preview = document.getElementById('preview');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let originalImg = null;
+
+        dropZone.onclick = () => fileInput.click();
+        
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    originalImg = img;
+                    preview.src = ev.target.result;
+                    widthInput.value = img.width;
+                    heightInput.value = img.height;
+                    dropZone.classList.add('hidden');
+                    editor.classList.remove('hidden');
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        downloadBtn.onclick = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = parseInt(widthInput.value);
+            canvas.height = parseInt(heightInput.value);
+            ctx.drawImage(originalImg, 0, 0, canvas.width, canvas.height);
+            const link = document.createElement('a');
+            link.download = `resized-${canvas.width}x${canvas.height}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        };
+    </script>
+</body>
+</html>
